@@ -5,6 +5,7 @@ var _ = require('underscore');
 var csv2jsonfile = require('csv2jsonfile');
 const jsonexport = require('jsonexport');
 var app = express();
+const chalk = require('chalk');
 
 
 app.use(express.json());
@@ -15,7 +16,7 @@ csv2jsonfile.inline('currcodes.csv', { header: false })
   .then((obj) => {
     var codes = _.flatten(obj);
     codes = codes.join();
-    console.log(codes);
+    console.log(chalk.red.inverse(codes));
 
     
   var API = "8f16600142fcd433e45b009f9ce8810e";
